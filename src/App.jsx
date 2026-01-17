@@ -10,6 +10,7 @@ import Weather from "./pages/Weather.jsx";
 import Journal from "./pages/Observation.jsx";
 import Alerts from "./pages/Alerts.jsx";
 import Advices from "./pages/Advices.jsx";
+import Cultures from "./pages/Cultures.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 export default function App() {
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/journal" element={<ProtectedRoute><Journal /></ProtectedRoute>} />
         <Route path="/alerts" element={<ProtectedRoute><Alerts /></ProtectedRoute>} />
         <Route path="/advices" element={<ProtectedRoute><Advices /></ProtectedRoute>} />
+        <Route path="/cultures" element={<ProtectedRoute><Cultures /></ProtectedRoute>} />
       </Routes>
     </Router>
   );

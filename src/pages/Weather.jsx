@@ -39,10 +39,10 @@ export default function Weather() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 style={{ color: "#4CAF50" }}>Météo locale</h2>
-        <p style={{ color: "#777" }}>Entrez une ville pour consulter la météo</p>
+        <h2 style={{ color: "var(--primary)" }}>Toetr'andro</h2>
+        <p style={{ color: "var(--text-dark)", opacity: 0.7 }}>Ampidiro ny tanàna hijerena ny toetr'andro</p>
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p style={{ color: "#f44336" }}>{error}</p>}
 
         {weather && (
           <>
@@ -56,7 +56,7 @@ export default function Weather() {
             </motion.div>
             <div className="weather-temp">{weather.temperature}°C</div>
             <div className="weather-desc">{weather.description}</div>
-            <h3 style={{ marginTop: "10px" }}>{weather.ville}</h3>
+            <h3 style={{ marginTop: "10px", color: "var(--text-dark)" }}>{weather.ville}</h3>
           </>
         )}
 
@@ -65,9 +65,9 @@ export default function Weather() {
             type="text"
             value={ville}
             onChange={(e) => setVille(e.target.value)}
-            placeholder="Entrez une ville..."
+            placeholder="Ampidiro ny tanàna..."
           />
-          <button onClick={fetchWeather}>Rechercher</button>
+          <button onClick={fetchWeather}>Hitady</button>
         </div>
       </motion.div>
     </div>
