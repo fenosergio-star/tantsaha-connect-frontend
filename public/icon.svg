@@ -1,5 +1,35 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" fill="#4CAF50" rx="64"/>
-  <path d="M256 80c-48 0-88 40-88 88v32h-32c-16 0-32 16-32 32v160c0 16 16 32 32 32h240c16 0 32-16 32-32V232c0-16-16-32-32-32h-32v-32c0-48-40-88-88-88zm0 48c24 0 40 16 40 40v32H216v-32c0-24 16-40 40-40z" fill="white"/>
-  <text x="256" y="450" text-anchor="middle" fill="white" font-family="Arial" font-size="48" font-weight="bold">🌾</text>
+  <!-- Arrière-plan dégradé -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4CAF50"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8BC34A"/>
+      <stop offset="100%" stop-color="#4CAF50"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Fond arrondi -->
+  <rect width="512" height="512" fill="url(#bg)" rx="80"/>
+  
+  <!-- Plante stylisée -->
+  <g transform="translate(256,256)">
+    <!-- Tige -->
+    <rect x="-8" y="-100" width="16" height="200" fill="#2E7D32" rx="8"/>
+    
+    <!-- Feuilles -->
+    <ellipse cx="-40" cy="-60" rx="35" ry="15" fill="url(#leaf)" transform="rotate(-30)"/>
+    <ellipse cx="40" cy="-40" rx="35" ry="15" fill="url(#leaf)" transform="rotate(30)"/>
+    <ellipse cx="-35" cy="-20" rx="30" ry="12" fill="url(#leaf)" transform="rotate(-45)"/>
+    <ellipse cx="35" cy="0" rx="30" ry="12" fill="url(#leaf)" transform="rotate(45)"/>
+    
+    <!-- Épi de riz -->
+    <ellipse cx="0" cy="-120" rx="20" ry="40" fill="#FFD54F"/>
+    <ellipse cx="0" cy="-115" rx="15" ry="35" fill="#FFC107"/>
+  </g>
+  
+  <!-- Texte Tantsaha -->
+  <text x="256" y="420" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="36" font-weight="bold">TANTSAHA</text>
 </svg>
