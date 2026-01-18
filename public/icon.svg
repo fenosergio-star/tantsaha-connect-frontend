@@ -1,0 +1,5 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#4CAF50" rx="64"/>
+  <path d="M256 80c-48 0-88 40-88 88v32h-32c-16 0-32 16-32 32v160c0 16 16 32 32 32h240c16 0 32-16 32-32V232c0-16-16-32-32-32h-32v-32c0-48-40-88-88-88zm0 48c24 0 40 16 40 40v32H216v-32c0-24 16-40 40-40z" fill="white"/>
+  <text x="256" y="450" text-anchor="middle" fill="white" font-family="Arial" font-size="48" font-weight="bold">🌾</text>
+</svg>
