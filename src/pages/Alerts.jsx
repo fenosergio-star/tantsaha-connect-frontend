@@ -1,3 +1,5 @@
+import API_URL from '../config.js';
+
 // pages/Alerts.jsx
 import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
@@ -18,7 +20,7 @@ export default function Alerts() {
   }, []);
 
   const fetchAlerts = () => {
-    axios.get("http://localhost:3001/alerts", { headers: { Authorization: `Bearer ${token}` } })
+    axios.get(`${API_URL}/alerts`, { headers: { Authorization: `Bearer ${token}` } })
       .then(res => setAlerts(res.data))
       .catch(err => console.error(err));
   };
@@ -26,7 +28,7 @@ export default function Alerts() {
   const handleAddAlert = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/alerts", newAlert, {
+      await axios.post(`${API_URL}/alerts`, newAlert, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setNewAlert({ type: "", message: "" });
@@ -48,7 +50,7 @@ export default function Alerts() {
 
   const handleUpdateAlert = async (id, updatedData) => {
     try {
-      await axios.put(`http://localhost:3001/alerts/${id}`, updatedData, {
+      await axios.put(`${API_URL}/alerts/${id}`, updatedData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEditingId(null);
@@ -61,7 +63,7 @@ export default function Alerts() {
   const handleDeleteAlert = async (id) => {
     if (confirm("Hofafana ve ity fampandrenesana ity ?")) {
       try {
-        await axios.delete(`http://localhost:3001/alerts/${id}`, {
+        await axios.delete(`${API_URL}/alerts/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         fetchAlerts();

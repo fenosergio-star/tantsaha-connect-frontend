@@ -1,3 +1,5 @@
+import API_URL from '../config.js';
+
 // pages/Register.jsx
 import { useState } from "react";
 import axios from "axios";
@@ -14,7 +16,7 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:3001/auth/register", form);
+      await axios.post(`${API_URL}/auth/register`, form);
       alert("Fisoratana anarana vita! Afaka miditra ianao izao.");
       navigate("/login");
     } catch (err) {

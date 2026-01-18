@@ -1,3 +1,5 @@
+import API_URL from '../config.js';
+
 // pages/Weather.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -19,7 +21,7 @@ export default function Weather() {
 
   const fetchWeather = async () => {
     try {
-      const res = await axios.get(`http://localhost:3001/weather/${ville}`);
+      const res = await axios.get(`${API_URL}/weather/${ville}`);
       setWeather(res.data);
       setError("");
     } catch {

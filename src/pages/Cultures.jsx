@@ -1,3 +1,5 @@
+import API_URL from '../config.js';
+
 // pages/Cultures.jsx
 import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
@@ -34,7 +36,7 @@ export default function Cultures() {
   }, []);
 
   const fetchCultures = () => {
-    axios.get("http://localhost:3001/cultures", { 
+    axios.get(`${API_URL}/cultures`, { 
       headers: { Authorization: `Bearer ${token}` } 
     })
     .then(res => setCultures(res.data))
@@ -44,7 +46,7 @@ export default function Cultures() {
   const handleAddCulture = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/cultures", newCulture, {
+      await axios.post(`${API_URL}/cultures`, newCulture, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setNewCulture({ nom_culture: "", saison_plantation: "", duree_croissance: "", conseils_specifiques: "" });

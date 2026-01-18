@@ -1,3 +1,5 @@
+import API_URL from '../config.js';
+
 // pages/Login.jsx
 import { useState } from "react";
 import axios from "axios";
@@ -15,7 +17,7 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:3001/auth/login", { email, password });
+      const res = await axios.post(`${API_URL}/auth/login`, { email, password });
       localStorage.setItem("token", res.data.token);
       navigate("/");
     } catch (err) {

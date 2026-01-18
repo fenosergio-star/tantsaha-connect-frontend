@@ -1,3 +1,5 @@
+import API_URL from '../config.js';
+
 // pages/Journal.jsx
 import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
@@ -14,13 +16,13 @@ export default function Journal() {
   const userIsAdmin = useMemo(() => isAdmin(), []);
 
   const fetchObservations = () => {
-    axios.get("http://localhost:3001/observations", { headers: { Authorization: `Bearer ${token}` } })
+    axios.get(`${API_URL}/observations`, { headers: { Authorization: `Bearer ${token}` } })
       .then(res => setObservations(res.data))
       .catch(err => console.error(err));
   };
 
   const fetchCultures = () => {
-    axios.get("http://localhost:3001/cultures", { headers: { Authorization: `Bearer ${token}` } })
+    axios.get(`${API_URL}/cultures`, { headers: { Authorization: `Bearer ${token}` } })
       .then(res => setCultures(res.data))
       .catch(err => console.error(err));
   };
@@ -32,14 +34,14 @@ export default function Journal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3001/observations", form, { headers: { Authorization: `Bearer ${token}` } })
+    axios.post(`${API_URL}/observations`, form, { headers: { Authorization: `Bearer ${token}` } })
       .then(() => { fetchObservations(); setForm({ date: "", pluie: "", parasites: "", lieu: "", culture_id: "" }); })
       .catch(err => console.error(err));
   };
 
   const handleUpdateObservation = async (id, updatedData) => {
     try {
-      await axios.put(`http://localhost:3001/observations/${id}`, updatedData, {
+      await axios.put(`${API_URL}/observations/${id}`, updatedData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEditingId(null);
@@ -52,7 +54,7 @@ export default function Journal() {
   const handleDeleteObservation = async (id) => {
     if (confirm("Supprimer cette observation ?")) {
       try {
-        await axios.delete(`http://localhost:3001/observations/${id}`, {
+        await axios.delete(`${API_URL}/observations/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         fetchObservations();

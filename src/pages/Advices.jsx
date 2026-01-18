@@ -1,3 +1,5 @@
+import API_URL from '../config.js';
+
 // pages/Advices.jsx
 import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
@@ -19,7 +21,7 @@ export default function Advices() {
   }, []);
 
   const fetchAdvices = () => {
-    axios.get("http://localhost:3001/advices", { headers: { Authorization: `Bearer ${token}` } })
+    axios.get(`${API_URL}/advices`, { headers: { Authorization: `Bearer ${token}` } })
       .then(res => setAdvices(res.data))
       .catch(err => console.error(err));
   };
@@ -27,7 +29,7 @@ export default function Advices() {
   const handleAddAdvice = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/advices", newAdvice, {
+      await axios.post(`${API_URL}/advices`, newAdvice, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setNewAdvice({ title: "", description: "", audio_url: "" });
@@ -40,7 +42,7 @@ export default function Advices() {
 
   const handleUpdateAdvice = async (id, updatedData) => {
     try {
-      const response = await axios.put(`http://localhost:3001/advices/${id}`, updatedData, {
+      const response = await axios.put(`${API_URL}/advices/${id}`, updatedData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setEditingId(null);
@@ -54,7 +56,7 @@ export default function Advices() {
   const handleDeleteAdvice = async (id) => {
     if (confirm("Hofafana ve ity torohevitra ity ?")) {
       try {
-        await axios.delete(`http://localhost:3001/advices/${id}`, {
+        await axios.delete(`${API_URL}/advices/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         fetchAdvices();
