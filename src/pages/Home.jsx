@@ -29,7 +29,7 @@ export default function Home() {
   const fetchWeather = async (city = 'Antananarivo') => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:3001/weather/${city}`, {
+      const response = await axios.get(`${API_URL}/weather/${city}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setWeather(response.data);
